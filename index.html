@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Favorite Person 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    background: linear-gradient(135deg,#fbc2eb,#a6c1ee);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    color:white;
+}
+
+/* Floating blurry hearts */
+.heart{
+    position:absolute;
+    font-size:20px;
+    opacity:0.6;
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(100vh) scale(0);}
+    100%{transform:translateY(-10vh) scale(1);}
+}
+
+/* Glowing Title */
+h1{
+    font-family:'Playfair Display', serif;
+    font-size:3rem;
+    margin-bottom:20px;
+    text-shadow:0 0 15px rgba(255,255,255,0.8);
+    animation:fadeIn 2s ease-in-out;
+}
+
+/* Glass Card */
+.card{
+    background:rgba(255,255,255,0.15);
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter:blur(15px);
+    width:90%;
+    max-width:600px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    animation:fadeIn 3s ease-in-out;
+}
+
+.card p{
+    line-height:1.8;
+    font-size:1.1rem;
+}
+
+.buttons{
+    margin-top:25px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    margin:10px;
+    cursor:pointer;
+    font-size:1rem;
+    transition:0.3s;
+}
+
+.yes{
+    background:#ff6f91;
+    color:white;
+}
+
+.no{
+    background:white;
+    color:#ff6f91;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+/* Hidden Message */
+.hidden{
+    display:none;
+    margin-top:20px;
+    font-size:1.3rem;
+    animation:fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+footer{
+    position:absolute;
+    bottom:20px;
+    font-size:0.8rem;
+    opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Valentine's Day,Raghab🤍</h1>
+
+<div class="card">
+    <p>
+        To my favorite person,
+        <br><br>
+        Loving you feels like soft sunsets, warm hugs, and peaceful nights.
+        You are my comfort, my happiness, and my safest place. ajha testo gift kaii nw dinw paye ni yeti website chaii banako xu hope you will like it.
+        <br><br>
+        If I had to choose again in every lifetime,
+        I would still choose you. My lovee!!!
+    </p>
+
+    <div class="buttons">
+        <button class="yes" onclick="showLove()">Yes, Forever 💍</button>
+        <button class="no" onclick="moveButton(this)">No 🙈</button>
+    </div>
+
+    <div class="hidden" id="message">
+        You’re stuck with me forever now 💕✨
+    </div>
+</div>
+
+<footer>
+Made with love by prativa🤍
+</footer>
+
+<script>
+function showLove(){
+    document.getElementById("message").style.display="block";
+}
+
+function moveButton(btn){
+    btn.style.position="absolute";
+    btn.style.top=Math.random()*80+"%";
+    btn.style.left=Math.random()*80+"%";
+}
+
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="🤍";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(Math.random()*5+5)+"s";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{heart.remove();},8000);
+}
+
+setInterval(createHeart,400);
+</script>
+
+</body>
+</html>
